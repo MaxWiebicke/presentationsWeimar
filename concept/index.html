@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Forschungs- und Lehrkonzept</title>
+
+		<link rel="stylesheet" href="../reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../reveal.js/plugin/highlight/monokai.css">
+		
+		<!-- Font awesome is required for the chalkboard plugin -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+		<!-- Chalkboard plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+		
+		<!-- Seminar plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/seminar/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
+		
+		<style>
+		
+		.columns {
+			display: flex;
+			align-items: center;
+		}
+
+		.column {
+			flex: 1;
+			margin: 10px;
+		}
+		
+		.custom-column {
+			width: 60%;
+			/* You can add additional styles as needed */
+		}
+		
+		.left-align {
+    text-align: left;
+		}
+		
+		.reveal section {
+    text-align: left;
+		}
+		
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+		}
+		
+		/* Style the overlay container */
+		.overlay-container {
+				position: relative;
+		}
+		
+		/* Style the subsequent images and position them slightly to the right */
+		.overlay-container img {
+				position: absolute;
+				top: 0;
+				left: 20px; /* Adjust this value to control the horizontal spacing */
+		}
+		
+		</style>
+		
+	</head>
+	
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Forschungs- und Lehrkonzept</h2>
+					<br>
+					<br>
+					Max Wiebicke
+					
+				</section>
+				
+				<section>
+					<!--
+					<section>
+						<h2>Forschungskonzept</h2>
+						<ul>
+							<li><h2>Theoretische Bodenmechanik</h2></li>
+							<li><h2>Anwendungen in der Geotechnik</h2></li>
+						</ul>
+						
+					</section>
+					-->
+					
+					<section>
+						<h3>Forschungskonzept</h3>
+						<div class="r-stack">
+							<img class="fragment" src="images/conceptResearch-2.svg" width="100%">
+							<img class="fragment" src="images/conceptResearch-3.svg" width="100%">
+							<img class="fragment" src="images/conceptResearch-4.svg" width="100%">
+							<img class="fragment" src="images/conceptResearch-5.svg" width="100%">
+							<img class="fragment" src="images/conceptResearch-6.svg" width="100%">
+							<img class="fragment" src="images/conceptResearch.svg" width="100%">
+						</div>
+					</section>
+					
+					<!--
+					<section>
+						<h2>Theoretische Bodenmechanik</h2>
+						<h4>Struktur von Böden</h4>
+						<ul>
+							<li>Granulare Böden</li>
+							<ul>
+								<li>Ursache der Hysteresis bei Lastzyklen</li>
+								<li>Rolle der Anisotropie</li>
+							</ul>
+							<li>Tone und natürliche Böden</li>
+							<ul>
+								<li>Entwicklung zuverlässiger bildgebender Verfahren zur Bestimmung der Struktur</li>
+							</ul>
+							<li>Tools: Röntgentomographie und Diskrete Elemente Methode</li>							
+						</ul>
+					</section>
+					
+					<section>
+						<h2>Theoretische Bodenmechanik</h2>
+						<h4>Stoffmodelle</h4>
+						<ul>
+							<li>Stoffmodelle für Tone</li>
+							<ul>
+								<li>Erweiterung des hydrodynamischen Modells</li>
+								<ul>
+									<li>Hysteresis bei Lastzyklen</li>
+									<li>Übergang zu Tonsuspensionen &rarr; Schlammrutschungen</li>
+								</ul>
+								<li>unterstützende Laborversuche</li>
+							</ul>
+							<li>Natürliche Böden</li>
+							<ul>
+								<li>Strukturbeschreibung</li>
+							</ul>
+					</section>
+					-->
+					
+					<!---
+					<section>
+						<h2>Theoretische Bodenmechanik</h2>
+						<ul>
+							<li>Methoden für enggestufte granulare Materialien sind etabliert, auch wenn noch viele Fragen offen sind</li>
+							<li>Bildgebende Methoden für Tone</li>
+							<li>Behandlung natürlicher Böden</li>
+							<li>In diesem Sinne organisieren wir momentan Sandless!</li>
+						</ul>
+					</section>
+					--->
+					
+					<!--
+					<section>
+						<h2>Anwendungen in der Geotechnik</h2>
+						<ul>
+							<li>Geotechnische Anwendung von Stoffmodellen</li>
+							<ul>
+								<li>Verbesserung der Prognosen zum Bodenverhalten</li>
+								<li>Zustandsbestimmung des Bodens (in situ)</li>
+								<li>Parameteridentifikation - Labor und Feld</li>
+								<li>Heterogenität des Bodens</li>
+							</ul>
+							<li>Material: Schotter</li>
+							<ul>
+								<li>Modellierung Schotter als diskretes System (DEM)</li>
+								<li>Schotter-Baugrund Interaktion</li>
+								<li>Bahntrassen, Baugrundverbesserung: Schottersäulen</li>
+							</ul>
+						</ul>
+					</section>
+					-->
+					
+					<section>
+						<h3>Forschungskultur</h3>
+						<ul>
+							<li>Seminarreihe mit eingeladenen Geotechnikern</li>
+							<li>Organisation von internationalen Workshops und Doktorandenschulen</li>
+							<li>Anbindung an ALERT Geomaterials</li>
+							<li>Doppelabschlüsse für Doktoranden</li>
+							<li>Nationaler und Internationaler Austausch</li>
+						</ul>
+					</section>
+					
+					<!---
+					<section>
+						<h2>Geotechnik</h2>
+						<h4>Verkehrswege Schiene</h4>
+						<div class="columns">
+						  <div class="custom-column">
+								<ul>
+									<li class="fragment" data-fragment-index="1">Modellierung Schotter als diskretes System (DEM)</li>
+									<li class="fragment" data-fragment-index="2">Schotter-Baugrund Interaktion</li>
+									<li class="fragment" data-fragment-index="2">Verständnis der Interaktion wichtig für Instandsetzung/Wartung/Neubau</li>
+								</ul>
+						  </div>
+						  <div class="column">
+								<img class="fragment" class="fragment" data-fragment-index="1" src="images/Tolomeo_railwayBallast.png" width="100%">
+								<span class="fragment" data-fragment-index="1"><small>(Tolomeo and McDowell, 2023)</small></span>
+						  </div>
+						</div>
+					</section>
+					--->
+					
+				</section>
+				
+				<section>
+					<section>
+						<h3>Lehrkonzept</h3>
+						
+						<div class="r-stack">
+							<img class="fragment" src="images/conceptTeaching-0.svg" width="100%">
+							<img class="fragment" src="images/conceptTeaching-1.svg" width="100%">
+							<img class="fragment" src="images/conceptTeaching-2-0.svg" width="100%">
+							<img class="fragment" src="images/conceptTeaching-2-1.svg" width="100%">
+							<img class="fragment" src="images/conceptTeaching-2.svg" width="100%">
+							<img class="fragment" src="images/conceptTeaching.svg" width="100%">
+						</div>
+						
+						<!--
+						<ul>
+							<li class="fragment" data-fragment-index="1">Methodik</li>
+							<ul>
+								<li class="fragment" data-fragment-index="2">Interaktivität / Diskussionen</li>
+								<li class="fragment" data-fragment-index="2">Fokus von Beispielproblemen auf Ebenen <b>Lokal</b>/Bund/Weltweit</li>
+								<li class="fragment" data-fragment-index="2">vereinfachte Experimente in der Vorlesung</li>
+							</ul>	
+							<li class="fragment" data-fragment-index="3">Umsetzung</li>
+							<ul>	
+								<li class="fragment" data-fragment-index="3">kurzfristig: Module Stück für Stück anschauen/überarbeiten</li>
+								<li class="fragment" data-fragment-index="3">langfristig: Anpassung an Forschungsthemen und Expertise</li> 
+							</ul>	
+						</ul>
+						-->
+					</section>
+					
+					<!-- Write your comments here 
+					<section>
+						<h2>Interaktivität</h2>
+						<ul>
+							<li>hier ein Beispiel zum einem Jupyter Notebook zum Darstellen von Daten</li>
+							<li>Beispiel Felsmechanik - Projektion von Orientierugen</li>
+							
+						</ul>
+					</section>
+					-->
+					
+					<section>
+						<h3>Interaktivität</h3>
+						<h4>Am Beispiel einer Übung zu Stoffmodellen in der Bodenmechanik</h4>
+						<a href="http://localhost:8888/notebooks/e-14-constitutive-modelling/exercise_5.ipynb" target="_blank">
+						<img src="images/Screenshot_jupyter.png" width="100%">
+						</a> 
+					</section>
+					
+					<section>
+						<h3>Kurzfristige Ziele</h3>
+						<ul>
+							<li class="fragment" data-fragment-index="1">Review der derzeitigen Lehre / Durchführung</li> 
+							<li class="fragment" data-fragment-index="1">Vereinheitlichung der Lehre im Institut (und darüber hinaus)</li>
+							<ul>
+								<li class="fragment" data-fragment-index="1">Interaktion mit Studenten</li>
+								<li class="fragment" data-fragment-index="1">Nutzung von Open Source Software (Python, ...)</li>
+							</ul>
+						</ul>
+						<br><br>
+						<h3 class="fragment" data-fragment-index="2">Langfristige Ziele</h3>
+						<ul>
+							<li class="fragment" data-fragment-index="3">Anpassung an Forschung und Expertise</li>
+							<ul>
+								<li class="fragment" data-fragment-index="3">Stoffmodelle und Numerische Methoden ausbauen</li> 
+								<li class="fragment" data-fragment-index="3">Modul (oder Teilmodul) zur quantitativen Bildanalyse</li> 
+								<li class="fragment" data-fragment-index="3">Umgang mit beschränkten Datensätzen</li> 
+							</ul>
+						</ul>
+					</section>
+					
+					<!--
+					<section>
+						<h2>Langfristige Ziele</h2>
+						<ul>
+							<li class="fragment" data-fragment-index="1">Anpassung and Forschung und Expertise</li>
+							<ul>
+								<li class="fragment" data-fragment-index="1">Stoffmodelle und Numerische Methoden ausbauen</li> 
+								<li class="fragment" data-fragment-index="1">Modul (oder Teilmodul) zur quantitativen Bildanalyse</li> 
+								<li class="fragment" data-fragment-index="1">Umgang mit beschränkten Datensätzen und maschinellem Lernen</li> 
+							</ul>
+							<li class="fragment" data-fragment-index="2">Lehr- und Prüfungsformen</li>
+							<ul>
+								<li class="fragment" data-fragment-index="2">Belegarbeiten mit Diskussion/Präsentation</li> 
+								<li class="fragment" data-fragment-index="2">Starker Einbezug Laborarbeit</li> 
+								<li class="fragment" data-fragment-index="2">Vorzugsweise mündliche Prüfungsformen</li> 
+							</ul>
+						</ul>
+						
+					</section>
+					-->
+					
+				</section>
+				
+				
+				
+			</div>
+		</div>
+
+		<script src="../reveal.js/dist/reveal.js"></script>
+		<script src="../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="../reveal.js/plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				width: 1200,
+				height: 700,
+				margin: 0.1,
+				hash: true,
+				// Vertical centering of slides
+				center: true,
+				chalkboard: {
+					// add configuration here
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealChalkboard, ]
+			});
+		</script>		
+	</body>
+</html>

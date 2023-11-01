@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Hydraulischer Grundbruch</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<!-- Font awesome is required for the chalkboard plugin -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+		<!-- Chalkboard plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+		
+		<style>
+		
+		.columns {
+			display: flex;
+		}
+
+		.column {
+			flex: 1;
+			margin: 10px;
+		}
+
+		
+		body {text-align: right}
+		</style>
+	</head>
+	
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Hydraulischer Grundbruch</h2>
+					
+				</section>
+				<section data-markdown>
+					### Header
+					test 
+					`$$ J(\theta_0,\theta_1) = \sum_{i=0} $$`
+				</section>
+				
+				<section>
+				  <h3>Modellversuch</h3>
+				  <p><small>Video aus der Bachelorarbeit (TU Dresden) - Hagedorn (2019)</small></p>
+					<video autoplay controls src="/home/max/Documents/future/weimar/Lehrvortrag/literatur/Ivo/Grosser_Grundbruch_klein.mp4#t=85,105"></video>
+				</section>
+				
+				<section>
+					<div class="column" style="background-color:red;">
+						<h2>Column 1</h2>
+						<p>Data..</p>
+					</div>    
+					<div class="column" style="background-color:blue;">        
+						<h2>Column 2</h2>        
+						<p>Data..</p>    
+					</div></body> 
+					https://blog.hubspot.com/website/html-columns
+				</section>
+				
+				<section>
+					<div class="row">
+						<div class="column" style="background-color:#aaa;">
+							<h2>Column 1</h2>
+							<p>Some text..</p>
+						</div>
+						<div class="column" style="background-color:#bbb;">
+							<h2>Column 2</h2>
+							<p>Some text..</p>
+						</div>
+					</div>
+				</section>
+				
+				<section>
+					<h2>Two-Column Layout</h2>
+					<div class="columns">
+							<div class="column">
+									test 1
+							</div>
+							<div class="column">
+									test 2
+							</div>
+					</div>
+				</section>
+
+				
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// Vertical centering of slides
+				center: true,
+				customcontrols: {
+					controls: [
+						{ icon: '<i class="fa fa-pen-square"></i>',
+							title: 'Toggle chalkboard (B)',
+							action: 'RevealChalkboard.toggleChalkboard();'
+						},
+						{ icon: '<i class="fa fa-pen"></i>',
+							title: 'Toggle notes canvas (C)',
+							action: 'RevealChalkboard.toggleNotesCanvas();'
+						}
+					]
+				},
+				chalkboard: {
+					// add configuration here
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealChalkboard, RevealCustomControls ]
+			});
+		</script>
+	</body>
+</html>
