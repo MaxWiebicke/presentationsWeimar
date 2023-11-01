@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Hydraulischer Grundbruch</title>
+
+		<link rel="stylesheet" href="../reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../reveal.js/plugin/highlight/monokai.css">
+		
+		<!-- Font awesome is required for the chalkboard plugin -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+		<!-- Chalkboard plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+		
+		<!-- Seminar plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/seminar/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
+		
+		<!-- Menu plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.js"></script>
+		<link href=" https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.css " rel="stylesheet">
+		
+		<!-- Questions plugin requires seminar plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/questions/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/questions/style.css">
+		
+		<!-- Poll plugin requires seminar plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/poll/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/poll/style.css">
+		
+		<!-- Chart plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+		
+		<!-- QR-Codes -->
+		<script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+		
+		<style>
+		
+		.columns {
+			display: flex;
+			align-items: center;
+		}
+
+		.column {
+			flex: 1;
+			margin: 10px;
+		}
+		
+		.custom-column {
+			width: 70%;
+			/* You can add additional styles as needed */
+		}
+		
+		.left-align {
+    text-align: left;
+		}
+		
+		.reveal section {
+    text-align: left;
+		}
+		
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+		}
+		
+		/* Style the overlay container */
+		.overlay-container {
+				position: relative;
+		}
+		
+		/* Style the subsequent images and position them slightly to the right */
+		.overlay-container img {
+				position: absolute;
+				top: 0;
+				left: 20px; /* Adjust this value to control the horizontal spacing */
+		}
+		
+		</style>
+		
+	</head>
+	
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Hydraulischer Grundbruch</h2>
+					Modul: Grundbau  <br>
+					Studiengang: B.Sc. Bauingenieurwesen
+					<br>
+					<br>
+					Max Wiebicke<br><br>
+					<small>Stand: 3. November 2023</small>
+					<div id="qrcode" style="position: absolute; bottom: 0px; right: 0px;"></div>
+					<br>
+					<small><a id="url"></a></small>
+					<!--
+					-->
+					
+				</section>
+				
+				<section>
+					
+					<section>
+						<h3>Was könnte hier passiert sein?</h3>
+						<p><small>Bilder aus Schwarz (2007)</small></p>
+						<!-- <img src="images/Schwarz_Bild1.png" alt="Image 1" width="700"> 
+						<div class="overlay-container">
+							<img src="images/Schwarz_Bild5.png" alt="Image 2" width="700">
+						</div>
+						-->
+						<div class="r-stack">
+							<img class="fragment" src="images/Schwarz_Bild1.png" width="65%">
+							<img class="fragment" src="images/Schwarz_Bild2.png" width="65%">
+							<img class="fragment" src="images/Schwarz_Bild3.png" width="65%">
+							<img class="fragment" src="images/Schwarz_Bild4.png" width="65%">
+							<img class="fragment" src="images/Schwarz_Bild5.png" width="65%">
+						</div>
+					</section>
+					
+					<section>
+						<h4>Was könnte für den Wassereinbruch verantwortlich gewesen sein?</h4>	
+						<center>
+							<div class="poll" data-poll="approval">
+								<button data-value="1">Wasserspiegeldifferenz zwischen Baugrube und Gelände</button>
+								<br>
+								<button data-value="2">Kapillarkräfte im Boden</button>
+								<br>
+								<button data-value="3">Anziehung des Wassers durch Pflanzen im Boden</button>
+								<br>
+							</div>
+						</center>
+						<p style="font-size:24px;color:gray;">Antworten: <span class="voters" data-poll="approval">0</span></p>
+					</section>
+					
+					<section>
+						<h4>Was könnte für den Wassereinbruch verantwortlich gewesen sein?</h4>	
+						
+						<div style="height:480px">
+							<canvas data-chart="pie" data-poll="approval">
+							, Wasserspiegel, Kapillarkräfte, Pflanzen
+							, 0, 0, 0
+							</canvas>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Hydraulischer Grundbruch</h3>
+						<div class="r-stack">
+							<img src="images/Prinzipskizze-1.jpg" width="90%">
+							<img class="fragment" src="images/Prinzipskizze-2.jpg" width="90%">
+							<img class="fragment" src="images/Prinzipskizze-3.jpg" width="90%">
+							<img class="fragment" src="images/Prinzipskizze-3-1.jpg" width="90%">
+							<!--
+							<img class="fragment" src="images/Prinzipskizze-3-2.jpg" width="90%">
+							<img class="fragment" src="images/Prinzipskizze-5.jpg" width="90%">
+							-->
+							<img class="fragment" src="images/Prinzipskizze-4.jpg" width="90%">
+						</div>
+					</section>
+					
+					<section>
+						<h3>Modellversuch</h3>
+						<p><small>Video aus der Bachelorarbeit (TU Dresden) - Hagedorn (2019)</small></p>
+						<video controls src="images/Grosser_Grundbruch_klein.mp4#t=85,105" width="75%"></video>
+					</section>
+					
+					<section>
+						<h3>Modellversuch - Details</h3>
+						<p><small>Ergebnisse as der Diplomarbeit (TU Dresden) - Nöller (2019)</small></p>
+						<div class="columns">
+						  <div class="column">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="1" src="images/Noeller2019_V21-01.png" width="100%">
+									<img class="fragment fade-in" data-fragment-index="1" src="images/Noeller2019_V21-04.png" width="100%">
+								</div>
+							</div>
+							<div class="column">
+								<small><span class="fragment fade-in-then-out" data-fragment-index="2">Betrag der Verschiebung <sup>[1]</sup></span></small>
+								<div class="r-stack">
+									<img class="fragment fade-in-then-out" data-fragment-index="2" src="images/Noeller2019_DIC_verschiebung.png" width="100%">
+									<img class="fragment fade-in" data-fragment-index="3" src="images/Noeller2019_bruchkoerper.png" width="100%">
+								</div>
+							</div>
+						</div>
+						<aside class="footnotes">
+							<small class="fragment" data-fragment-index="2">[1] DIC <a href="https://www.uni-weimar.de/de/bauingenieurwesen/professuren/geotechnik/lehre/msc-bauingenieurwesen/experimentelle-geotechnik-grundungsschaeden-und-sanierung/" target="_blank">Lehrveranstaltung Experimentelle Methoden in der Bodenmechanik im Masterstudiengang</a>.</small>
+						</aside>
+						
+					</section>
+					
+					<section>
+						<h3>Wiederholung: Strömung im Boden</h3>
+						<div class="columns">
+						  <div class="column">
+								<div class="equation-list" style="font-size: 30px;">
+									<ul>
+										<li class="fragment" data-fragment-index="1">
+										  Bestimmung der Potentialverteilung aus der Laplace'schen DGL
+											\[ 
+											\frac{\partial^2 h_r}{\partial x^2} + \frac{\partial^2 h_r}{\partial z^2} = 0
+											\]
+										</li>
+										
+										<ul class="fragment" data-fragment-index="2">
+											<li>zeichnerische Lösung</li>
+											<li>analytische Näherungsverfahren</li>
+											<li>FDM, FEM<sup>[1]</sup></li>
+										</ul>
+										<li class="fragment" data-fragment-index="5">
+											hydraulische Höhe aus dem Netz
+											\[
+											h_r = h_0 \pm \frac{\Delta h}{n_{pot}} \cdot n_i
+											\]
+										</li>
+									</ul>
+								</div>
+						  </div>
+							<div class="column">
+								<div class="r-stack">
+									<img src="images/terzaghi_Potentialnetz2-1.svg" width="100%">
+									<img class="fragment" data-fragment-index="1" src="images/terzaghi_Potentialnetz2-2.svg" width="100%">
+									<img class="fragment" data-fragment-index="3" src="images/terzaghi_Potentialnetz2-3.svg" width="100%">
+									<img class="fragment" data-fragment-index="4" src="images/terzaghi_Potentialnetz2.svg" width="100%">
+								</div>
+							</div>
+						</div>
+						
+						<aside class="footnotes">
+							<small class="fragment" data-fragment-index="2">[1] <a href="https://www.uni-weimar.de/de/bauingenieurwesen/professuren/geotechnik/lehre/msc-bauingenieurwesen/geotechnik-und-gruendungsvarianten/" target="_blank">Lehrveranstaltung Numerische Methoden in der Geotechnik im Masterstudiengang</a>.</small>
+						</aside>
+						
+					</section>
+					
+					
+				</section>
+				
+				<section>
+					<section>
+						<h3>Versagenskörper</h3>
+						<div class="r-stack">
+							<img class="fragment" data-fragment-index="1" src="images/terzaghi_visualisation_kor-1.svg" width="100%">
+							<img class="fragment" data-fragment-index="2" src="images/terzaghi_visualisation_kor-2.svg" width="100%">
+						</div>
+					</section>
+					
+					<section>
+						<h3>Kräfte am Versagenskörper</h3>
+						<div class="columns">
+							<div class="column">
+								<ul>
+									<div class="equation-list" style="font-size: 30px;">
+										<li class="fragment" data-fragment-index="4">stabilisierende Gewichtskraft
+											\[
+											G' = \gamma' \cdot t \cdot \frac{t}{2}
+											\]
+										</li>
+										<li class="fragment" data-fragment-index="5">destabilisierende Strömungskraft
+											\[\begin{aligned}
+											f_{s} &amp;= i \cdot \gamma_w \\
+											i &amp;= \frac{h_{r,1} + h_{r,2}}{2} \frac{1}{t} \\
+											S &amp;= f_s \cdot t \cdot \frac{t}{2}
+											\end{aligned}\]
+										</li>
+										<li class="fragment" data-fragment-index="6"><b>kein Ansatz</b> von Reibungskräften</li>
+									</div>
+								</ul>
+							</div>
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/Nachweiskoerper_kraefte-0.svg" width="60%">
+									<img class="fragment" data-fragment-index="2" src="images/Nachweiskoerper_kraefte-1.svg" width="60%">
+									<img class="fragment" data-fragment-index="3" src="images/Nachweiskoerper_kraefte-2.svg" width="60%">
+									<img class="fragment" data-fragment-index="4" src="images/Nachweiskoerper_kraefte-3.svg" width="60%">
+									<img class="fragment" data-fragment-index="6" src="images/Nachweiskoerper_kraefte-4.svg" width="60%">
+								</div>
+							</div>
+						</div>
+					</section>
+					
+					<!--
+					<section>
+						<h2>Kritischer hydraulischer Gradient</h2>
+						<p>Folie mit den Erklärungen zum kritischen Gradienten hinzufügen!</p>
+					</section>
+					-->
+				</section>
+					
+				<section>
+					<!--
+					<section>
+						<h3>Nachweisführung</h3>
+						<p class="fragment">Nachweis geregelt in EC-7 und DIN1054</p>
+						<iframe class="fragment" src="literatur/DIN-EN1997-1:2014-03.pdf#page=38" width="100%" height="500"></iframe>
+					</section>
+				
+					<section id="DIN1054">
+						<h3>Nachweisführung</h3>
+						<p>Nationaler Anhang DIN1054 </p> <a href="#/Naeherung"><small>Näherungsverfahren,</small></a> <a href="#/Naeherung"><small>Teilsicherheiten</small></a> 
+						<iframe class="fragment" src="literatur/DIN1054:2021-04.pdf#page=96" width="100%" height="500"></iframe>
+					</section>
+					-->
+					
+					<section>
+						<h3>Nachweis nach EC-7 und DIN1054</h3>
+						<ul>
+							<li class="fragment" data-fragment-index="1">EC7-1 (10.3) erlaubt den Nachweis über</li>
+							<ul>
+								<li class="fragment" data-fragment-index="2"> <span class="fragment strike" data-fragment-index="3">totale Spannungen vs Porenwasserdrücke</span></li>
+								<li class="fragment" data-fragment-index="2">Strömungskräfte vs Gewichtskräfte <span class="fragment" data-fragment-index="3">(DIN1054)
+									\[
+									S_{dst,d} \le G_{stb,d}'
+									\]</span>
+								</li>
+								<li class="fragment" data-fragment-index="3">$S_{dst,d}$ ... destabilisierende Strömungskraft</li>
+								<li class="fragment" data-fragment-index="3">$G_{stb,d}'$ ... stabilisierende Gewichtskraft</li>
+								<li class="fragment" data-fragment-index="3"><b>kein Ansatz</b> von Reibungskräften</li>
+							</ul>
+						</ul>
+					</section>
+					
+					<!--
+					<section>
+						<h3>Teilsicherheitsbeiwerte nach DIN1054</h3>
+						<iframe src="literatur/DIN1054:2021-04.pdf#page=32" width="100%" height="600"></iframe>
+					</section>
+					-->
+					
+					<section  id="Teilsicherheiten">
+						<h3>Teilsicherheitsbeiwerte nach DIN1054</h3>
+						<img src="images/DIN1054_teilsicherheitsbeiwerte_voll.png" width="100%">
+						
+					</section>
+					
+					<section  id="Teilsicherheiten">
+						<h3>Teilsicherheitsbeiwerte nach DIN1054</h3>
+						<ul>
+							<!--
+							<li>zur <a href="#/DIN1054">DIN1054</a> - Seite 32 </li>
+							-->
+							<li class="fragment" data-fragment-index="1">günstiger Baugrund</li>
+							<ul>
+								<li class="fragment" data-fragment-index="1">Kiese, mind. mitteldicht gelagerte Sande, mind. steifer bindiger Boden</li>
+							</ul>
+							<li class="fragment" data-fragment-index="2">ungünstiger Baugrund</li>
+							<ul>
+								<li class="fragment" data-fragment-index="2">locker gelagerte Sande, Feinsand, Schluff und weicher bindiger Boden</li>
+							</ul>
+						</ul>
+					</section>
+					
+					
+					<section id="Naeherung">
+						<h3>Näherungsverfahren</h3>
+						<!--
+						zur <a href="#/DIN1054">DIN1054</a>
+						-->
+						<div class="columns">
+							<div class="column">
+								<ul>
+									<div class="equation-list" style="font-size: 30px;">
+										<li class="fragment" data-fragment-index="1">
+										Näherungsformel nach Brinch-Hansen für Druckhöhe am Wandfuß (EAU, E115)
+											\[
+											h_r = \frac{h_{wu} \sqrt{h_{so}} + h_{wo} \sqrt{t}}{\sqrt{h_{so}} + \sqrt{t}} - h_{wu}
+											\]
+										</li>
+										<li class="fragment" data-fragment-index="2">Nachweis am Stromfaden möglich (Davidenkoff, 1970)
+											\[
+											\gamma_w \cdot i = \gamma_w \frac{h_r}{t} \le \gamma_k'
+											\]
+										</li>
+									</div>
+								</ul>
+							</div>
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/Nachweiskoerper_stromlinie-0.svg" width="65%">
+									<img class="fragment" data-fragment-index="2" src="images/Nachweiskoerper_stromlinie-1.svg" width="65%">
+								</div>
+							</div>							
+						</div>
+					</section>
+				
+				</section>
+				
+				<section>
+					<section>
+						<h3>Ein Beispiel</h3>
+					</section>
+					
+					
+					<section>
+						<h3>Beispiel aus Ziegler (2012)</h3>
+						<div class="equation-list" style="font-size: 25px;">
+							$\gamma' = 11~\text{kN/m}^3,~ \gamma_w = 10~\text{kN/m}^3,~ t=5~\text{m},~ \gamma_H=1,45,~ \gamma_{G,stb}=0,95$
+						</div>
+						<div class="columns">
+							<div class="custom-column">
+								<img class="fragment" data-fragment-index="1" src="images/2012_ziegler_breiteBaugrube.png" width="100%">
+								<small class="fragment" data-fragment-index="1">[1] Potentialnetz aus FEM Simulation</small>
+							</div>
+							<!--
+							<div class="column">
+								<span  class="fragment" data-fragment-index="2">Terzaghi-Körper</span>
+								<div class="fragment" data-fragment-index="2" class="equation-list" style="font-size: 30px;">
+									\[\begin{aligned}
+									h_r &amp; = \frac{3,99~\text{m} + 2,76~\text{m}}{2} \\
+									&amp;  = 3,375~\text{m} \\
+									i &amp; = \frac{h_r}{t} = \frac{3,375~\text{m}}{5~\text{m}} = 0,675
+									\end{aligned} \]
+								</div>
+							</div>
+							-->
+						</div>
+					</section>
+					
+					<section>
+						<h4>Wie hoch ist der Ausnutzungsgrad für den Terzaghi-Bruchkörper?</h4>	
+						<center>
+							<div class="poll" data-poll="approval">
+								<button data-value="1">1.10</button>
+								<br>
+								<button data-value="2">0.95</button>
+								<br>
+								<button data-value="3">0.80</button>
+								<br>
+							</div>
+						</center>
+						<p style="font-size:24px;color:gray;">Antworten: <span class="voters" data-poll="approval">0</span></p>
+					</section>
+					
+					<section>
+						<h4>Wie hoch ist der Ausnutzungsgrad für den Terzaghi-Bruchkörper?</h4>	
+						
+						<div style="height:480px">
+							<canvas data-chart="pie" data-poll="approval">
+							, 1.10, 0.95, 0.80
+							, 0, 0, 0
+							</canvas>
+						</div>
+					</section>
+					
+					<!--
+					<section>
+						<h4>Terzaghi-Körper</h4>
+						<div class="equation-list" style="font-size: 30px;">
+							$\gamma' = 11~\text{kN/m}^3,~ \gamma_w = 10~\text{kN/m}^3,~ t=5~\text{m},~ \gamma_H=1,45,~ \gamma_{G,stb}=0,95$
+						</div>
+						<div class="fragment" data-fragment-index="2" class="equation-list" style="font-size: 30px;">
+							<span style="font-size: 35px;">Bestimmung Kräfte</span>
+							\[\begin{aligned}
+							f_s &amp; = i \cdot \gamma_w = 0,675 \cdot 10~\text{kN/m$^3$} = 6,8~\text{kN/m$^3$}  \\
+							S &amp; = f_s \cdot \frac{t^2}{2} = 6,8~\text{kN/m$^3$} \cdot \frac{\left(5~\text{m}\right)^2}{2} = 84,4~\text{kN/m} \\
+							G &amp; = \gamma' \cdot \frac{t^2}{2} = 11~\text{kN/m$^3$} \cdot \frac{\left(5~\text{m}\right)^2}{2} = 137,5~\text{kN/m} \\
+							\end{aligned} \]
+							<span style="font-size: 35px;">Nachweis</span>
+							\[\begin{aligned}
+							\mu &amp; = \frac{S_{dst,d}}{G_{stb,k}'} = \frac{S_{dst,k} \cdot \gamma_H}{G_{stb,k} \cdot \gamma_{G,stb}} = 
+							\frac{84,4~\text{kN/m} \cdot 1,45}{137,5~\text{kN/m}\cdot 0,95} = \frac{122,3~\text{kN/m}}{130,6~\text{kN/m}} = 0,94 \\
+							\mu &amp; < 1 \quad \rightarrow \text{Nachweis erfüllt!}
+							\end{aligned} \]
+						</div>
+					</section>
+					-->
+					
+					<section>
+						<h4>Stromlinie mit Abschätzformel nach Brinch-Hansen</h4>
+						<div class="equation-list" style="font-size: 30px;">
+							$\gamma' = 11~\text{kN/m}^3,~ \gamma_w = 10~\text{kN/m}^3,~ t=5~\text{m},~ \gamma_H=1,45,~ \gamma_{G,stb}=0,95$
+						</div>
+						<div class="fragment" data-fragment-index="2" class="equation-list" style="font-size: 30px;">
+							<span style="font-size: 35px;">Hydraulischer Gradient</span>
+							\[\begin{aligned}
+							h_r &amp; = \frac{h_{wu} \sqrt{h_{so}} + h_{wo} \sqrt{t}}{\sqrt{h_{so}} + \sqrt{t}} - h_{wu} 
+							= \frac{5~\text{m} \sqrt{15~\text{m}} + 15~\text{m} \sqrt{5~\text{m}}}{\sqrt{15~\text{m}} + \sqrt{5~\text{m}}} - 5~\text{m} = 3,66~\text{m} \\
+							i  &amp;= \frac{3,66~\text{m}}{5~\text{m}} = 0,732
+							\end{aligned} \]
+							<span style="font-size: 35px;">Nachweis</span>
+							\[\begin{aligned}
+							S_{dst,d} &amp; = i \cdot \gamma_w \cdot \gamma_H = 0,732 \cdot 10~\text{kN/m$^3$} \cdot 1,45 = 10,61~\text{kN/m}^3 \\
+							G_{stb,d} &amp; = \gamma_k' \cdot \gamma_{G,stb} = 11~\text{kN/m$^3$} \cdot 0,95 = 10,45~\text{kN/m}^3 \\
+							\mu &amp; = \frac{S_{dst,d}}{G_{stb,d}}  = \frac{10,61~\text{kN/m}^3}{10,45~\text{kN/m}^3} = 1,01  > 1 \quad \rightarrow \text{Nachweis nicht erfüllt!}
+							\end{aligned} \]
+						</div>
+					</section>
+				
+				</section>
+				
+				<section>
+					<section>
+						<h3>Maßnahmen<h3>
+						<div class="r-stack">
+							<img class="fragment" data-fragment-index="1" src="images/Massnahmen-0.svg" width="120%">
+							<img class="fragment" data-fragment-index="2" src="images/Massnahmen.svg" width="100%">
+						</div>
+					</section>
+					
+					<!--
+					<section>
+						<h3>Baugrunderkundung</h3>
+						<ul>
+							<li>Skizze mit Gefahren im Baugrund</li>
+							<li> unentdeckte Erosionsrinnen</li>
+							<li> Bodenlinsen mit erhöhter Durchlässigkeit -> verkürzter Sickerweg ...</li>
+						</ul>
+					</section>
+					-->	
+				</section>
+				
+				<section>
+					<section>
+						<h3>Zusammenfassung</h3>
+						<ul style="font-size: 35px;">
+							<li>hydraulischer Grundbruch kann bei tiefen Baugruben mit hohem hydraulischen Gefälle maßgebend werden</li>
+							<li>spontanes Versagen - schwer aufhaltbar, nachdem es erkannt worden ist </li>
+							<li>Nachweisführung </li>
+							<ul>
+								<li>Terzaghi-Körper</li>
+								<li>Näherungsverfahren (Achtung Baugrubengeometrie!)</li>
+							</ul>
+							<li>Vielfältige Maßnahmen zur Steigerung der Sicherheit gegen hydraulischen Grundbruch möglich</li>
+							<li><a id="pdf-link"><i class="fas fa-file-pdf"></i></a> Präsentation als PDF ausdrucken</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h3>Literaturempfehlungen</h3>
+						<ul style="font-size: 35px;">
+							<li>Witt, K.~J. (Ed.). (2018). Grundbau-Taschenbuch. Berlin: Ernst &amp; Sohn.</li>
+							<li>Ziegler, M. (2012). Geotechnische Nachweise nach EC 7 und DIN 1054: Einführung in Beispielen. John Wiley &amp; Sons.</li>
+							<li>Boley, C. (2015). Geotechnische Nachweise und Bemessung nach EC 7 und DIN 1054: Grundlagen und Beispiele. Springer Vieweg.</li>
+						</ul>
+						
+					</section>
+					
+					<section>
+						<h3>Referenzen</h3>
+						<ul style="font-size: 30px;">
+							<li>DIN 1054:2021-04. Baugrund – Sicherheitsnachweise im Erd- und Grundbau – Ergänzende Regelungen zu DIN EN 1997-1. Stand: April 2021</li>
+							<li>Empfehlungen des Arbeitsausschusses „Ufereinfassungen“ Häfen und Wasserstraßen, Deutsche Gesellschaft für Geotechnik, 12. Auflage. 2020</li>
+							<li>DIN EN 1997-1:2014-03. Eurocode 7 – Entwurf, Berechnung und Bemessung in der Geotechnik. Stand: März 2014</li>
+							<li>Nöller (2019). Modellversuche zum Bodenverhalten beim hydraulischen Grundbruch. Diplomarbeit TU Dresden - Institut für Geotechnik.</li>
+							<li>Hagedorn (2019). Modellversuche zur Umströmung von Baugrubenwänden. Bachelorarbeit TU Dresden - Institut für Geotechnik.</li>
+							<li>Aulbach, B., &amp; Ziegler, M. (2014). Versagensform und Nachweisformat beim hydraulischen Grundbruch–Plädoyer für den Terzaghi‐Körper. geotechnik, 37(1).</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h3>Referenzen</h3>
+						<ul style="font-size: 30px;">
+							<li>Wudtke, R. B., &amp; Witt, K. J. (2010). Hydraulischer Grundbruch im bindigen Baugrund: Schadensmechanismen und Nachweisstrategie. Geotechnik-Tag in München - Wechselwirkungen Boden-Wasser-Bauwerk.</li>
+							<li>Ziegler, M., et al. (2009). Der Hydraulische Grundbruch–Bemessungsdiagramme zur Ermittlung der erforderlichen Einbindetiefe. Bautechnik, 86(9).</li>
+							<li>Odenwald, B., &amp; Herten, M. (2008). Hydraulischer Grundbruch: neue Erkenntnisse. Bautechnik, 85(9).</li>
+							<li>Schwarz, W. (2007). Berliner Baugruben: zunächst waren sie nicht immer wasserdicht. 6. Geotechnik-Tag in München: Geotechnik - aus Schäden lernen</li>
+							<li>Davidenkoff, R. (1970): Unterläufigkeit von Stauwerken, Werner Verlag Düsseldorf.</li>
+							<li>Terzaghi, K., &amp; Peck, R. B. (1961). Die Bodenmechanik in der Baupraxis. Berlin: Springer-Verlag.</li>
+						</ul>
+					</section>
+					
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h3>Weiterführende Informationen</h3>
+				</section>
+				
+				<section>
+					<h3>Schmale Baugrube</h3>
+					<div class="equation-list" style="font-size: 30px;">
+					  Beispiel aus Ziegler (2012) <br>
+						$\gamma' = 11~\text{kN/m}^3,~ \gamma_w = 10~\text{kN/m}^3,~ t=5~\text{m},~ \gamma_H=1,45,~ \gamma_{G,stb}=0,95$
+					</div>
+					<div class="columns">
+						<div class="custom-column">
+							<img class="fragment" data-fragment-index="1" src="images/2012_ziegler_schmaleBaugrube.png" width="100%">
+						</div>
+						<div class="column">
+							<div class="equation-list" style="font-size: 30px;">
+								<p class="fragment" data-fragment-index="2">Terzaghi-Körper aus Potentialnetz: <br>
+								$~ i = \frac{5.92 + 5.09}{2 \cdot 5} = 1.101$ </p>
+								<p class="fragment" data-fragment-index="2"> Näherungsformel nach Brinch-Hansen: <br>
+								$~ i = 0.732$ </p>
+							</div>	
+						</div>	
+					</div>
+					
+				</section>
+				
+				<section>
+					<h4>Terzaghi-Körper</h4>
+					<div class="equation-list" style="font-size: 30px;">
+						\[\begin{aligned}
+						S_{dst,d} &amp; = i \cdot \gamma_w \cdot \frac{t^2}{2} = 1,1 \cdot 10~\text{kN/m$^3$} \cdot \frac{\left(5~\text{m}\right)^2}{2} = 137,5~\text{kN/m} \\
+						G_{stb,k} &amp; = \gamma' \cdot \frac{t^2}{2} = 11~\text{kN/m$^3$} \cdot \frac{\left(5~\text{m}\right)^2}{2} = 137,5~\text{kN/m} \\
+						\mu &amp; = \frac{S_{dst,d}}{G_{stb,k}'} = \frac{S_{dst,k} \cdot \gamma_H}{G_{stb,k} \cdot \gamma_{G,stb}} = 
+						\frac{199,3~\text{kN/m}}{130,6~\text{kN/m}} = 1,53 > 1
+						\end{aligned} \]
+					</div>
+					<h4 class="fragment" data-fragment-index="2">Stromlinie mit Brinch-Hansen</h4>
+					<div class="fragment" data-fragment-index="2" class="equation-list" style="font-size: 30px;">
+						\[\begin{aligned}
+						S_{dst,d} &amp; = i \cdot \gamma_w \cdot \gamma_H = 1,1 \cdot 10~\text{kN/m$^3$} \cdot 1,45 = 15,95~\text{kN/m}^3 \\
+						G_{stb,d} &amp; = \gamma_k' \cdot \gamma_{G,stb} = 11~\text{kN/m$^3$} \cdot 0,95 = 10,45~\text{kN/m}^3 \\
+						\mu &amp; = \frac{S_{dst,d}}{G_{stb,d}}  = \frac{10,61~\text{kN/m}^3}{10,45~\text{kN/m}^3} = 1,01  > 1
+						\end{aligned} \]
+					</div>
+				</section>
+			
+				
+				<section>
+						<h3>Feinkörnige Böden</h3>
+						<p>Untersuchungen aus Wudtke &amp; Witt (2010)</p>
+						<div class="columns">
+							<div class="column">
+								<img class="fragment" data-fragment-index="1" src="images/Wudtke2010_Modellversuch.png" width="100%">
+							</div>
+							<div class="column">
+								<ul>
+									<li class="fragment" data-fragment-index="2">stärkere Bodendeformationen</li>
+									<li class="fragment" data-fragment-index="2">Rissbildung</li>
+									<li class="fragment" data-fragment-index="2">Bruch und Auftrieb des geschädigten Bodens</li>
+								</ul>
+							</div>
+						</div>
+						
+					</section>
+					
+					<section>
+						<h3>Feinkörnige Böden</h3>
+						<p>Untersuchungen aus Wudtke &amp; Witt (2010)</p>
+						<div class="r-stack">
+							<img class="fragment" data-fragment-index="1" src="images/Wudtke2010_nachweis-0reveal.png" width="80%">
+							<img class="fragment" data-fragment-index="2" src="images/Wudtke2010_nachweis.png" width="80%">
+						</div>
+					</section>	
+					
+					<section>
+						<h3>Drei-dimensionaler Fall</h3>
+						<p>Untersuchungen aus Aulbach &amp; Ziegler (2013)</p>
+						<div class="columns">
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/2013_aulbach_3DSkizze.png" width="100%">
+									<img class="fragment" data-fragment-index="3" src="images/2013_aulbach_Vorschlag.png" width="100%">
+								</div>
+							</div>
+							<div class="column">
+								<img class="fragment" data-fragment-index="2" src="images/2013_aulbach_eckeStirnLaengs.png" width="100%">
+							</div>
+						</div>
+					</section>
+				</section>
+			</section>
+				
+				
+			</div>
+		</div>
+
+		<script src="../reveal.js/dist/reveal.js"></script>
+		<script src="../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="../reveal.js/plugin/math/math.js"></script>
+		<script>
+			// Variable tracking whether slide deck is connected to seminar server
+			let isConnected = false;
+			
+			document.getElementById('pdf-link').href = getURL() + '?print-pdf';
+			
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				width: 1200,
+				height: 700,
+				margin: 0.1,
+				hash: true,
+				// Vertical centering of slides
+				center: true,
+				progress: true,
+				slideNumber: "h.v",
+				dependencies: [
+					{ src: '../reveal.js/plugin/toolbar/toolbar.js' },
+				],
+				menu: {
+					themes: false,
+					transitions: false,
+					markers: true,
+					hideMissingTitles: true,
+					custom: [
+						{ title: 'Broadcast', icon: '<i class="fas fa-rss">', content: getSeminarMenu() }
+					]
+				},
+				customcontrols: {
+					controls: [
+						{ icon: '<i class="fa fa-pen-square"></i>',
+							title: 'Toggle chalkboard (B)',
+							action: 'RevealChalkboard.toggleChalkboard();'
+						},
+						{ icon: '<i class="fa fa-pen"></i>',
+							title: 'Toggle notes canvas (C)',
+							action: 'RevealChalkboard.toggleNotesCanvas();'
+						},
+						{
+							icon: '<span class="fa-stack" style="margin: -24px -12px;padding:0;"><span class="fa-solid fa-comment fa-stack-1x"></span><strong class="fa-stack-1x fa-inverse qna question-counter" style="font-size:0.5em;"></strong></span>',
+							title: 'Toggle Q&A dashboard (Q)',
+							action: 'RevealQnA.toggleQnA();'
+						},
+					]
+				},
+				toolbar: {
+							position: 'top',
+							fullscreen: true,
+				},
+				chalkboard: {
+					// add configuration here
+					storage: "MaxTest",
+					//src: "chalkboard.json",
+					theme: "whiteboard",
+				},
+				seminar: {
+					// add configuration here
+					// server: 'https://cheerful-partner.glitch.me/', // change server as necessary
+					// server: 'http://localhost:4433',
+					server: 'https://mighty-shiny-lungfish.glitch.me/',
+					room: 'Max', // put your room name here
+					hash: '$2a$05$GI.kICRbH3IZZJTZXHTJauB0G9jrLAZef3GCHxL060IlVbsA9ea/W', // a hash is required for every seminar room and can be generated on the URL of the socket.io server
+					autoJoin: true, // set to true to automatically join the seminar room
+					logger: seminarStatusLogger
+				},
+				chart: {
+					defaults: {
+						color: 'black', // color of labels
+						scale: {
+							beginAtZero: true,
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] },
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+					pie: { backgroundColor: [ ["rgba(20,20,220,.8)", "rgba(220,220,20,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(0,0,0,.8)"] ]},
+				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, 
+									 RevealHighlight, 
+									 RevealNotes, 
+									 RevealMath.KaTeX, 
+									 RevealChalkboard, 
+									 RevealCustomControls, 
+									 RevealSeminar, 
+									 RevealMenu, 
+									 RevealQnA,
+									 RevealPoll,
+									 RevealChart ]
+			}).then(() => {	
+			if ( !isConnected ) {
+				// hide all elements that 
+				var showOnConnected = document.querySelectorAll(".seminar.connected") || [];
+				for (var i=0; i < showOnConnected.length; i++) {
+					showOnConnected[i].style.display = 'none';
+				}
+			}
+	
+			});
+			
+			function getURL(id) {
+				var urlparts= window.location.href.split('#');
+				return urlparts[0];
+			}
+			
+			Reveal.configure({ pdfSeparateFragments: false });
+			
+			/******************************************
+			* Setup of seminar
+			******************************************/
+			function getSeminarMenu() {
+		
+				var seminarMenu = '<p class="slide-menu-item" id="broadcast">'
+					+ '<form>'
+					+ '<table>'
+					+ '<tr><td> User name:</td><td> <input type="text" id="username" style="font-size:80%;" size="13"></td></tr>'
+					+ '<tr><td> Password:</td><td> <input type="password" id="password" style="font-size:80%;" size="13"></td></tr>'
+					+ '</table>'
+					+ '<button id="startSeminar" type="submit" style="margin:10px;">Start</button><button id="stopSeminar"  style="margin:10px;">Stop</button>'
+					+ '</form>'
+					+ '<p>Status log:</p>'
+					+ '<textarea id="logger" spellcheck="false" readonly style="width:100%;height:calc(100% - 180px);background-color:black;color:white;">Trying to connect to server ...\n</textarea>'
+					+ '</p>';
+				return seminarMenu;
+			}
+		
+			function initSeminarMenu() {
+				var element = document.getElementById('broadcast');
+				if ( element ) {
+					// make sure that events are not propagated
+					element.parentElement.addEventListener('keydown', consumeBroadcastEvent );
+		
+					var startButton = document.getElementById('startSeminar');
+					if ( startButton ) {
+						startButton.addEventListener('click', function(evt) {
+							evt.preventDefault();
+							RevealSeminar.open_or_join_room(document.getElementById('password').value, (document.getElementById('username') || {}).value || 'Lecturer');
+						});
+					}
+		
+					var stopButton = document.getElementById('stopSeminar');
+					if ( stopButton ) {
+						stopButton.addEventListener('click', function(evt) {
+							evt.preventDefault();
+							if ( confirm("Are you sure you want to close the seminar for all participants?") ) {
+								RevealSeminar.close_room(document.getElementById('password').value);
+							}
+						});
+					}
+		
+				}
+				else {
+					setTimeout( initSeminarMenu, 100 );
+				}
+			}
+		
+			function consumeBroadcastEvent( evt ) {
+				evt.stopPropagation();
+			}
+		
+			function seminarStatusLogger( message ) {
+				if ( !isConnected ) {
+					// hide elements that are only displayed when not connected
+					var showOnDisconnected = document.querySelectorAll(".seminar.disconnected") || [];
+					for (var i=0; i < showOnDisconnected.length; i++) {
+						showOnDisconnected[i].style.display = "none";
+					}
+		
+					// show elements that are only displayed when connected
+					var showOnConnected = document.querySelectorAll(".seminar.connected") || [];
+					for (var i=0; i < showOnConnected.length; i++) {
+						showOnConnected[i].style.display = '';
+					}
+					isConnected = true;
+				}
+				var element = document.getElementById('logger');
+				if ( element ) {
+					while ( (element.value.match(/\n/g) || []).length >= 10 ) {
+						// Limit number of lines in log to 10
+						element.value = element.value.substring(element.value.indexOf("\n") + 1);
+					};
+					element.value += '> ' + message + '\n';
+				}
+			}
+		
+			initSeminarMenu();
+			
+			/******************************************
+			* Create QR-Code
+			******************************************/
+			function initQRCode() {
+				var QRCodeElement = document.getElementById('qrcode');
+				if ( QRCodeElement ) {
+					const qrCode = new QRCodeStyling({
+						type: "svg",
+						width: 300,
+						height: 300,
+						data: getURL(),
+						//image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjIiIGhlaWdodD0iNTYiIHZpZXdCb3g9IjAgMCA2MiA1NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik01OSA0Mi41ODQ1TDU5IDE0LjEzODRMMTIgMy43MzY1NEwxMiA1Mi4zMTUzTDU5IDQyLjU4NDVaTTYwLjQwNTUgNDUuMzU3MkM2MS4zMzQxIDQ1LjE2NDkgNjIgNDQuMzQ3IDYyIDQzLjM5ODdMNjIgMTMuMzM1NUM2MiAxMi4zOTc1IDYxLjM0ODEgMTEuNTg1NSA2MC40MzIyIDExLjM4MjhMMTEuNDMyMiAwLjUzODI4NUMxMC4xODM2IDAuMjYxOTU2IDkgMS4yMTIyNSA5IDIuNDkxMDNMOC45OTk5OSA1My41NDM1QzguOTk5OTkgNTQuODExMSAxMC4xNjQyIDU1Ljc1OSAxMS40MDU1IDU1LjUwMkw2MC40MDU1IDQ1LjM1NzJaIiBmaWxsPSIjRDUzRjhDIi8+CjxwYXRoIGQ9Ik0wIDEyLjYwMTNDMCAxMS42NTMgMC42NjU5MzMgMTAuODM1MSAxLjU5NDUyIDEwLjY0MjhMNTAuNTk0NSAwLjQ5ODAxOUM1MS44MzU4IDAuMjQxMDI3IDUzIDEuMTg4ODcgNTMgMi40NTY0OVY1My41MDlDNTMgNTQuNzg3OCA1MS44MTY0IDU1LjczOCA1MC41Njc4IDU1LjQ2MTdMMS41Njc4MyA0NC42MTczQzAuNjUxOTQzIDQ0LjQxNDYgMCA0My42MDI1IDAgNDIuNjY0NVYxMi42MDEzWiIgZmlsbD0iI0YyRTE0MiIvPgo8cGF0aCBkPSJNMTIgMy4wMjkzMkwxMiA1My4wMjUyTDkuMDAwMDEgNTMuMDI1Mkw5LjAwMDAxIDMuMDI5MzJMMTIgMy4wMjkzMloiIGZpbGw9IiNENTNGOEMiLz4KPC9zdmc+Cg==",
+						dotsOptions: {
+								color: "var(--r-link-color-dark)",
+								type: "dots"
+						},
+						backgroundOptions: {
+								color: "white",
+						},
+						//imageOptions: {
+						//		crossOrigin: "anonymous",
+						//		margin: 10
+						//},
+						cornersSquareOptions: {
+								color: "#000000",
+								type: "dots"
+						},
+						cornersDotOptions: {
+								color: "#000000",
+								type: "dot"
+						}
+					});
+					qrCode.append(QRCodeElement);
+				}
+				var urlElement = document.getElementById('url');
+				if ( urlElement ) {
+					urlElement.innerHTML = getURL();
+						urlElement.href = getURL();
+				}
+		
+			}
+		
+			initQRCode();
+			
+		</script>		
+</html>
+	</body>
+
